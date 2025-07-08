@@ -1,24 +1,23 @@
+name: Example CI Workflow
+
 on:
   push:
-    branches:[ main ]
-  pull_requests:
-    branches:[ main ]
-
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
-  jobs:
-    build:
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-      runs_on:ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-      steps:
-        -uses:action/checkout@3
-        -name: Any
-        -run: echo Hello
+      - name: Any
+        run: echo Hello
 
-        -name: multi line job
-        -run: |
-        echo this is
-        echo multi line job
-
-      
+      - name: multi line job
+        run: |
+          echo this is
+          echo multi line job
