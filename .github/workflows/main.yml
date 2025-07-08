@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:[ main ]
+  pull_requests:
+    branches:[ main ]
+
+  workflow_dispatch:
+
+  jobs:
+    build:
+
+      runs_on:ubuntu-latest
+
+      steps:
+        -uses:action/checkout@3
+        -name: Any
+        -run: echo Hello
+
+        -name: multi line job
+        -run: |
+        echo this is
+        echo multi line job
+
+      
